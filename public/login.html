@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Simon Game Login</title>
+
+    <!-- Google Font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+
+  <body class="login-body">
+    <div class="login-container">
+      <h1 class="logo-title">Simon Game</h1>
+      <p class="subtitle">Login to continue</p>
+
+      <input type="email" id="email" placeholder="Email" />
+      <input type="password" id="password" placeholder="Password" />
+
+      <button class="primary-btn" onclick="loginUser()">Login</button>
+      <button class="secondary-btn" onclick="signupUser()">Sign Up</button>
+
+      <p id="auth-status" class="status-text"></p>
+    </div>
+
+    <script src="js/auth.js"></script>
+  </body>
+</html>
