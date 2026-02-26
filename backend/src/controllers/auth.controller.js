@@ -3,6 +3,8 @@ const { hashPassword, comparePassword } = require("../utils/hash");
 
 exports.signup = async (req, res) => {
   try {
+    console.log("Signup request body:", req.body);
+
     const { email, password } = req.body;
 
     if (!email || !password)
@@ -17,7 +19,8 @@ exports.signup = async (req, res) => {
 
     res.status(201).json({ message: "User created", user });
   } catch (err) {
-    res.status(500).json({ error: err.message });
+    console.error("Signup Error FULL:", err);
+    res.status(500).json({ error: err.message || "Unknown error" });
   }
 };
 
