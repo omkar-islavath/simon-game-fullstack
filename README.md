@@ -3,7 +3,7 @@
 A full-stack memory game where users can sign up, log in, play the Simon game, and compete on a global leaderboard.
 
 ## Live Demo
-(After deployment, add your Render link here)
+https://simon-game-b7be.onrender.com
 
 ## Features
 - User Signup and Login
@@ -27,3 +27,4 @@ Database:
 - PostgreSQL
 
 ## Project Structure
+
