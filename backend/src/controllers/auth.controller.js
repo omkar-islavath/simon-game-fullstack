@@ -40,3 +40,28 @@ exports.login = async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 };
+exports.resetPassword = async (req, res) => {
+  try {
+    const { email, newPassword } = req.body;
+
+    const user = await userModel.findUserByEmail(email);
+
+    if (!user) {
+      return res.status(404).json({
+        message: "User not found",
+      });
+    }
+
+    const hashedPassword = await hashPassword(newPassword);
+
+    await userModel.updatePassword(email, hashedPassword);
+
+    res.json({
+      message: "Password updated",
+    });
+  } catch (err) {
+    res.status(500).json({
+      error: err.message,
+    });
+  }
+};

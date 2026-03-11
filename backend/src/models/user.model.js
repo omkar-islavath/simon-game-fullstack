@@ -14,3 +14,9 @@ exports.createUser = async (email, password) => {
   );
   return result.rows[0];
 };
+exports.updatePassword = async (email, password) => {
+  await pool.query("UPDATE users SET password = $1 WHERE email = $2", [
+    password,
+    email,
+  ]);
+};
