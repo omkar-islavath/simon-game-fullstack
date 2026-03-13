@@ -23,6 +23,14 @@ async function signupUser() {
 }
 
 async function loginUser() {
+  const loader = document.getElementById("loader");
+  const btnText = document.getElementById("btn-text");
+  const loginBtn = document.getElementById("login-btn");
+
+  if (loader) loader.style.display = "inline-block";
+  if (btnText) btnText.textContent = "Logging in...";
+  if (loginBtn) loginBtn.disabled = true;
+
   const email = document.getElementById("email").value;
   const password = document.getElementById("password").value;
 
@@ -40,11 +48,9 @@ async function loginUser() {
     status.style.color = "lightgreen";
     status.textContent = "Login successful!";
 
-    // Save session
     localStorage.setItem("userId", data.userId);
     localStorage.setItem("email", email);
 
-    // Redirect after short delay
     setTimeout(() => {
       window.location.href = "game.html";
     }, 800);
@@ -52,8 +58,11 @@ async function loginUser() {
     status.style.color = "red";
     status.textContent = data.message || "Login failed";
   }
-}
 
+  if (loader) loader.style.display = "none";
+  if (btnText) btnText.textContent = "Login";
+  if (loginBtn) loginBtn.disabled = false;
+}
 function getUserId() {
   return localStorage.getItem("userId");
 }

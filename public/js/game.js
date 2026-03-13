@@ -4,13 +4,20 @@ var userClickedPattern = [];
 
 var started = false;
 var level = 0;
+var highScore = 0;
 
 /* START GAME */
-$(document).keypress(function () {
+$("#start-btn").click(function () {
   if (!started) {
-    $("#level-title").text("Level " + level);
-    nextSequence();
+    $("#start-btn").hide();
+
+    level = 0;
+    gamePattern = [];
     started = true;
+
+    $("#level-display").text("Level: 0");
+
+    nextSequence();
   }
 });
 
@@ -36,13 +43,15 @@ function checkAnswer(currentLevel) {
   } else {
     playSound("wrong");
     $("body").addClass("game-over");
-    $("#level-title").text("Game Over, Press Any Key to Restart");
+    $("#level-title").text("Game Over");
+
+    $("#restart-btn").show();
 
     saveScore(level); //  BACKEND INTEGRATION
 
     setTimeout(function () {
       $("body").removeClass("game-over");
-    }, 200);
+    }, 300);
 
     startOver();
   }
@@ -52,16 +61,25 @@ function checkAnswer(currentLevel) {
 function nextSequence() {
   userClickedPattern = [];
   level++;
-  $("#level-title").text("Level " + level);
+
+  $("#level-display").text("Level: " + level);
+
+  if (level > highScore) {
+    highScore = level;
+
+    $("#high-score").text("High Score: " + highScore);
+  }
 
   var randomNumber = Math.floor(Math.random() * 4);
   var randomChosenColour = buttonColours[randomNumber];
   gamePattern.push(randomChosenColour);
+  var btn = $("#" + randomChosenColour);
 
-  $("#" + randomChosenColour)
-    .fadeIn(100)
-    .fadeOut(100)
-    .fadeIn(100);
+  btn.addClass("active");
+
+  setTimeout(function () {
+    btn.removeClass("active");
+  }, 400);
 
   playSound(randomChosenColour);
 }
@@ -103,3 +121,16 @@ async function saveScore(score) {
     }),
   });
 }
+$("#restart-btn").click(function () {
+  startOver();
+
+  $("#restart-btn").hide();
+
+  level = 0;
+  gamePattern = [];
+  started = true;
+
+  $("#level-display").text("Level: 0");
+
+  nextSequence();
+});
