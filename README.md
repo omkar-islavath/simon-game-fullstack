@@ -169,8 +169,8 @@ http://localhost:3000
 ### Leaderboard
 ![Leaderboard](assets/leaderboard.png)
 
-### ResetPassword
-![ResetPassword](assets/resetpassword.png)
+### Reset Password
+![Reset Password](assets/resetpassword.png)
 
 ## Author
 
