@@ -1,26 +1,31 @@
-#NeuroPulse
+# NeuroPulse
 
-A full-stack implementation of the classic **Simon memory game** with user authentication, persistent scores, and a leaderboard. Players must remember and repeat an increasingly long sequence of colors. The project includes a responsive UI and a backend that stores user accounts and scores.
+A full-stack memory sequence game inspired by the classic Simon Game.
+NeuroPulse challenges players to remember and repeat increasingly complex color sequences while maintaining scores through a persistent leaderboard system.
 
 ---
 
 ## Live Demo
 
-Add your deployed link here:
+https://neuropulse-jusn.onrender.com
 
-`https://simon-game-b7be.onrender.com`
+---
+
+## GitHub Repository
+
+https://github.com/omkar-islavath/NeuroPulse
 
 ---
 
 ## Features
 
-* User authentication (Signup / Login)
-* Password reset functionality
-* Simon memory game logic
-* Persistent score saving
-* Global leaderboard
-* Responsive UI for desktop and mobile
-* Full-stack deployment
+* User Authentication (Signup / Login)
+* Password Reset Functionality
+* Interactive Memory Sequence Gameplay
+* Persistent Score Saving
+* Global Leaderboard
+* Responsive UI for Desktop and Mobile
+* Full-Stack Deployment
 
 ---
 
@@ -40,7 +45,7 @@ Add your deployed link here:
 
 ### Database
 
-* PostgreSQL
+* PostgreSQL(Neon deployment)
 
 ### Deployment
 
@@ -50,8 +55,8 @@ Add your deployed link here:
 
 ## Project Structure
 
-```
-simon-game/
+```bash
+NeuroPulse/
 │
 ├── backend/
 │   ├── src/
@@ -95,55 +100,61 @@ simon-game/
 │   ├── leaderboard.html
 │   └── forgot-password.html
 │
+├── assets/
+│   ├── login.png
+│   ├── game.png
+│   ├── leaderboard.png
+│   └── resetpassword.png
+│
 └── README.md
 ```
 
 ---
 
-## Game Rules
+## How to Play
 
-1. Press **Start Game**.
-2. The game shows a sequence of colors.
-3. Repeat the sequence by clicking the buttons.
-4. Each level adds a new color.
-5. If you make a mistake, the game ends and your score is saved.
+1. Click **Start Game**
+2. Watch the color sequence carefully
+3. Repeat the sequence by clicking the buttons
+4. Each level adds a new color
+5. A wrong click ends the game and saves your score
 
 ---
 
 ## Running Locally
 
-### 1. Clone the repository
+### 1. Clone the Repository
 
-```
-git clone https://github.com/omkar-islavath/simon-game-fullstack.git
-cd simon-game-fullstack
+```bash
+git clone https://github.com/omkar-islavath/NeuroPulse.git
+cd NeuroPulse
 ```
 
-### 2. Install backend dependencies
+### 2. Install Backend Dependencies
 
-```
+```bash
 cd backend
 npm install
 ```
 
-### 3. Configure environment variables
+### 3. Configure Environment Variables
 
-Create a `.env` file in `backend/`:
+Create a `.env` file inside the `backend/` directory:
 
-```
+```env
 DATABASE_URL=your_database_connection_string
 PORT=3000
 ```
 
-### 4. Start the server
+### 4. Start the Server
 
-```
+```bash
 npm run dev
 ```
 
-### 5. Open in browser
+### 5. Open in Browser
 
-```
+```bash
 http://localhost:3000
 ```
 
@@ -151,30 +162,17 @@ http://localhost:3000
 
 ## Future Improvements
 
-* Email-based password reset
-* JWT authentication
-* Animated game board
-* Sound toggle
-* Multiplayer mode
+* JWT Authentication
+* Email-based Password Reset
+* Sound Toggle
+* Difficulty Levels
+* Multiplayer Mode
+* User Statistics Dashboard
 
 ---
-## Screenshots
-
-### Login Page
-![Login Page](assets/login.png)
-
-### Game Page
-![Game Page](assets/game.png)
-
-### Leaderboard
-![Leaderboard](assets/leaderboard.png)
-
-### Reset Password
-![Reset Password](assets/resetpassword.png)
 
 ## Author
 
-Omkar Islavath
+**Omkar Islavath**
 
-GitHub:
-https://github.com/omkar-islavath
+GitHub: https://github.com/omkar-islavath
